@@ -28,9 +28,9 @@ CREATE TABLE BOOKS(
         title       Varchar (200) NOT NULL ,
         author      Varchar (200) NOT NULL ,
         description Varchar (250) NOT NULL ,
+        opinion     Varchar (250) NOT NULL ,
         id_user     Int NOT NULL
 	,CONSTRAINT BOOKS_PK PRIMARY KEY (id_book)
 
 	,CONSTRAINT BOOKS_USERS_FK FOREIGN KEY (id_user) REFERENCES USERS(id_user)
 )ENGINE=InnoDB;
-
