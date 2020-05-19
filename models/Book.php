@@ -52,6 +52,13 @@ class Book extends DbConnect {
         $this->description = $description;
     }
 
+    public function getOpinion() {
+        return $this->opinion;
+    }
+
+    public function setOpinion($opinion) {
+        $this->opinion = $opinion;
+
     public function getIdUser() {
         return $this->id_user;
     }
