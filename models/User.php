@@ -17,3 +17,4 @@ class User extends DbConnect {
     function __construct($id_utilisateur = null) {
         parent::__construct($id_utilisateur);
     }
+}

@@ -4,9 +4,6 @@
 
 </div>
 
-<html>
-<body>
-
     <div class = "form3">
         <h2>Ajouter un livre</h2>
         
@@ -23,5 +20,3 @@
     
             </form>
     </div>
-</body>
-</html>
