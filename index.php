@@ -43,7 +43,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
     break;
     case "deconnect" : deconnectUser();
     break;
-    case "insert_annonce" : insertBook();
+    case "insert_book" : insertBook();
     break;
     default : $view = showHome();//Afficher la page d'accueil avec mon formulaire  
 }
