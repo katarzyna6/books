@@ -7,7 +7,7 @@
     <div class = "form3">
         <h2>Ajouter un livre</h2>
         
-            <form action="index.php?route=membre" method="POST">
+            <form action="index.php?route=insert_book" method="POST">
 
                 <label for="titre"><input type="text" placeholder="Titre" name="titre"/></label>
                 <label for="auteur"><input type="text" placeholder="Auteur" name="auteur"/></label>
