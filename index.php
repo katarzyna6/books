@@ -98,11 +98,11 @@ function insertUser() {
                 $_SESSION['nick']=$nick;
                 $_SESSION['password']=$password;
 
-        }else {
+    }else {
                 echo "Erreur.<br>";
         
         }
-    }
+    
     setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
     //header("Location:index.php");
 }  
