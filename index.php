@@ -47,3 +47,25 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
     break;
     default : $view = showHome();//Afficher la page d'accueil avec mon formulaire  
 }
+
+function showMembre() {
+
+    // Visualiser temporairement les données d'un utilisateur
+    $user = new User();
+    $user->selectAll();
+    $datas = [];
+
+    return ["template" => "membre.php", "datas" => $datas];
+}
+
+function showHome() {
+    if(isset($_SESSION["user"])) {
+        header("Location:index.php?route=membre");
+    }
+    
+
+    $datas = [];
+	// il suffit désormais de mettre dans $datas les données à transmettre à notre vue
+    // par exemple $datas["annee"] = 2020;
+	return ["template" => "home.html", "datas" => $datas];
+}
