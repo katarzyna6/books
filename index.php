@@ -75,8 +75,7 @@ function showHome() {
 
 function insertUser() {
     
-    if(!empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["pseudo"]) &&
-    $_POST["password"] === $_POST["password2"]) {
+    if(!empty($_POST["nick"]) &&(!empty($_POST["nom"]) && (!empty($_POST["prenom"]) && (!empty($_POST["email"]) && $_POST["password"] === $_POST["password2"]) && (!empty($_POST["autorisation"]))))) {
       
         /*if (preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["nom"])
             && preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["prenom"])
