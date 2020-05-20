@@ -75,7 +75,7 @@ function showHome() {
 
 function insertUser() {
     
-    if(!empty($_POST["nick"]) &&(!empty($_POST["nom"]) && (!empty($_POST["prenom"]) && (!empty($_POST["email"]) && $_POST["password"] === $_POST["password2"]) && (!empty($_POST["autorisation"]))))) {
+    if(!empty($_POST["nick"]) &&(!empty($_POST["nom"]) && (!empty($_POST["prenom"]) && (!empty($_POST["email"]) && $_POST["password"] === $_POST["password2"])))) {
       
         /*if (preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["nom"])
             && preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["prenom"])
@@ -89,7 +89,7 @@ function insertUser() {
                 $user->setPrenom($_POST["prenom"]);
                 $user->setEmail($_POST["email"]);
                 $user->setPassword(password_hash($_POST["password"], PASSWORD_DEFAULT));
-                $user->setAutorisation($_POST["autorisation"]);
+                $user->setAutorisation(0);
 
                 $user->insert();
                 $nick= isset($_POST['nick'])? $_POST['nick'] : "null";
@@ -103,7 +103,7 @@ function insertUser() {
         }
     
     setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
-    //header("Location:index.php");
+    header("Location:index.php");
 }  
 
 function connectUser() {

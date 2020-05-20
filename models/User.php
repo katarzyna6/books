@@ -40,8 +40,9 @@ class User extends DbConnect {
     
     // Permet de modifier un utilisateur dans la base de donnée. 
     function update(){
-        $query ="UPDATE * FROM users WHERE nick ='$this->nick',";
+        $query ="UPDATE * FROM users WHERE nick=:nick";
         $result = $this->pdo->prepare($query);
+        $result->bindValue('nick', $this->nick, PDO::PARAM_STR);
         $result->execute();
         $data = $result->fetch();
                 //appel aux setters de l'objet
@@ -50,8 +51,9 @@ class User extends DbConnect {
 
     // Permet de supprimer un utilisateur dans la base de donnée. 
     function delete(){
-        $query ="DELETE * FROM users WHERE nick ='$this->nick',";
+        $query ="DELETE * FROM users WHERE nick=:nick";
         $result = $this->pdo->prepare($query);
+        $result->bindValue(':nick', $this->nick, PDO::PARAM_STR);
         $result->execute();
         $data = $result->fetch();
             //appel aux setters de l'objet
@@ -60,17 +62,19 @@ class User extends DbConnect {
        
     // Permet de selectionner un utilisateurs dans la base de donnée.
     function select(){
-        $query = "SELECT * FROM users WHERE id_user = $this->idUser;";
+        $query = "SELECT * FROM users WHERE id_user = :id_user";
         $result = $this->pdo->prepare($query);
+        $result->bindValue(':id_user', $this->idUser, PDO::PARAM_INT);
         $result->execute();
         $data = $result->fetch();
             //appel aux setters de l'objet
         return $this;
     }
 
-    public function selectByPseudo() {
-        $query = "SELECT * FROM users WHERE nick = '$this->nick';";
+    public function selectByNick() {
+        $query = "SELECT * FROM users WHERE nick = :nick";
         $result = $this->pdo->prepare($query);
+        $result->bindValue(':nick', $this->nick, PDO::PARAM_STR);
         $result->execute();
         $data = $result->fetch();
                 //appel aux setters de l'objet
