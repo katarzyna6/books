@@ -19,12 +19,12 @@ spl_autoload_register(function ($class) {
     }
 });
 
-setcookie('pseudo', 'adam1', time() + 182 * 24 * 60 * 60, '/');
+setcookie('nick', 'anne', time() + 182 * 24 * 60 * 60, '/');
 //var_dump($_COOKIE);
 
 
-if (isset($_COOKIE['pseudo'])){
-	$myPseudo = $_COOKIE['pseudo'];
+if (isset($_COOKIE['nick'])){
+	$myNick = $_COOKIE['nick'];
 }
 
 // 2. ROUTER
@@ -92,7 +92,7 @@ function insertUser() {
                 $user->setAutorisation($_POST["autorisation"]);
 
                 $user->insert();
-                $pseudo= isset($_POST['nick'])? $_POST['nick'] : "null";
+                $nick= isset($_POST['nick'])? $_POST['nick'] : "null";
                 $password= isset($_POST['password'])? $_POST['password'] : "null";
                 $_SESSION['nick']=$nick;
                 $_SESSION['password']=$password;
