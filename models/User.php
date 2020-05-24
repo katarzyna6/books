@@ -30,7 +30,7 @@ class User extends DbConnect {
         $result->bindValue(':prenom', $this->prenom, PDO::PARAM_STR);
         $result->bindValue(':email', $this->email, PDO::PARAM_STR);
         $result->bindValue(':password', $this->password, PDO::PARAM_STR);
-        $result->bindValue(':autorisation', $this->autorisation, PDO::PARAM_STR);
+        $result->bindValue(':autorisation', $this->autorisation, PDO::PARAM_INT);
         $result->execute();
 
         $this->id = $this->pdo->lastInsertId();

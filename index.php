@@ -114,6 +114,7 @@ function connectUser() {
         $user->setNick($_POST["nick"]);
         $user->setPassword($_POST["password"]);
         $verif = $user->selectByNick();
+        
 
         if($verif) { 
                 if(password_verify($_POST["password"], $verif["password"])) {
@@ -163,17 +164,10 @@ Affichage du système de templates HTML-->
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Club de livres</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
 <body>
 
     <?php require "views/{$view['template']}"; ?>
 
-
+    
 </body>
 </html>

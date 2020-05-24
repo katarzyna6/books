@@ -29,6 +29,7 @@ CREATE TABLE BOOKS(
         auteur      Varchar (200) NOT NULL ,
         description Varchar (250) NOT NULL ,
         note        Int NOT NULL ,
+        categorie   Varchar (50) NOT NULL ,
         id_user     Int NOT NULL
 	,CONSTRAINT BOOKS_PK PRIMARY KEY (id_BOOK)
 
