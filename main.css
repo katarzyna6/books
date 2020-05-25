@@ -1,16 +1,16 @@
 *
 body {
-    /*background: linear-gradient(to right bottom, rgb(191, 195, 199), rgb(90, 151, 182)) fixed;*/
-    background-image: url("img/book.jpg");
+  background: rgb(27,56,59);
+  background: linear-gradient(90deg, rgba(27,56,59,1) 0%, rgba(253,215,0,1) 100%, rgba(253,215,0,1) 100%);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 form {
-  background-color: rgba(202, 180, 147, 0.6);
+  background-color: rgba(17, 16, 15, 0.6);
   width: 700px;
-  padding: 50px;
-
+  padding: 20px;
+  margin-top: 45px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 8px;
@@ -39,18 +39,10 @@ background-clip: text;
 text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
   
 }*/
-
-.p {
-  background-color: rgba(26, 22, 19, 0.6);
-  color: #FDD700;
-  font-size: 7px;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+.img{
   width: 100%;
+  margin: auto;
 }
-
-
 h2 {
   text-align: center;
   color: #FDD700;

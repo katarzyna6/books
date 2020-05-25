@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="utf-8">
-    
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="../livres/fontello-c89048a8/css/fontello.css"/>
-    <link rel="stylesheet" type="text/css" href="../livres/fontello-68e0f786/css/fontello.css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../app.js"></script>
-</head>
-
-<body>
 <div class="espace">
 
     <h2>Mon espace</h2>
@@ -19,25 +5,28 @@
 </div>
 
     <div class = "form3">
-        <h2>Ajouter un livre</h2>
         
             <form action="index.php?route=insert_book" method="POST">
+            <h2>Ajouter un livre</h2>
 
                 <label for="title" class="field-label">Titre</label><input type="text" name="title" class="field-input">
                 <label for="author" class="field-label">Auteur</label><input type="text" name="author" class="field-input"/>
 
-                <label for="categorie" class="field-label">Catégorie :</label><input type="select" name="categorie" class="field-input"/>
+                <label for="categorie" class="field-label">Catégorie :</label><br><br><br>
                     <select id="cats" name="cats">
-                        <option value="roman">Roman</option>
-                        <option value="romanAv">Roman d'aventures</option>
-                        <option value="sF">Science-fiction</option>
+                        <option value="roman">Romans</option>
+                        <option value="romanAv">Romans d'aventures</option>
+                        <option value="sF">Science fiction</option>
                         <option value="fantasy">Fantasy</option>
-                        <option value="horreur">Horreur</option>
-                        <option value="bio">Biographies / Mémoires</option>
+                        <option value="horreur">Horreurs</option>
+                        <option value="bio">Biographies</option>
                         <option value="contes">Contes</option>
                         <option value="nouvelles">Nouvelles</option>
-                        <option value="tem">Témoignage / Reportage</option>
+                        <option value="tem">Reportages</option>
                     </select>
+
+                <label for="image" class="field-label">Charger une image</label><br><br><br>
+                <input type="file" name="fileToUpload" id="fileToUpload">
 
                 <label for="description" class="field-label">Description</label><input type="text" name="description" class="field-input"/>
                 <label for="opinion" class="field-label">Avis</label><input type="text" name="opinion" class="field-input"/>
@@ -56,5 +45,3 @@
     
             </form>
     </div>
-</body>
-</html>

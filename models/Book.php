@@ -10,6 +10,8 @@ class Book extends DbConnect {
     protected $id_book;
     protected $title;
     protected $author;
+    protected $categorie;
+    protected $image;
     protected $description;
     protected $opinion;
     protected $note;
@@ -24,12 +26,14 @@ class Book extends DbConnect {
 
     function insert(){
     
-        $query = "INSERT INTO books (title, author, description, opinion, note)
+        $query = "INSERT INTO books (title, author, image, categorie, description, opinion, note)
             VALUES(:title, :author, :description, :opinion, :note)";
 
         $result = $this->pdo->prepare($query);
         $result->bindValue(':title', $this->title, PDO::PARAM_STR);
         $result->bindValue(':author', $this->author, PDO::PARAM_STR);
+        $result->bindValue(':image', $this->image, PDO::PARAM_STR);
+        $result->bindValue(':categorie', $this->categorie, PDO::PARAM_STR);
         $result->bindValue(':description', $this->description, PDO::PARAM_STR);
         $result->bindValue(':opinion', $this->opinion, PDO::PARAM_STR);
         $result->bindValue(':note', $this->note, PDO::PARAM_INT);
@@ -97,7 +101,7 @@ class Book extends DbConnect {
         return $this->idBook;
     }
 
-    public function setIdBook($id_book) {
+    public function setIdBook(int $id_book) {
         $this->idBook = $id_abook;
     }
 
@@ -105,7 +109,7 @@ class Book extends DbConnect {
         return $this->title;
     }
 
-    public function setTitle($title) {
+    public function setTitle(string $title) {
         $this->title = $title;
     }
 
@@ -113,15 +117,23 @@ class Book extends DbConnect {
         return $this->author;
     }
 
-    public function setAuthor($author) {
+    public function setAuthor(string $author) {
         $this->author = $author;
+    }
+
+    public function getCategorie() {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie) {
+        $this->categorie = $categorie;
     }
 
     public function getDescription() {
         return $this->description;
     }
 
-    public function setDescription($description) {
+    public function setDescription(string $description) {
         $this->description = $description;
     }
 
@@ -129,7 +141,7 @@ class Book extends DbConnect {
         return $this->opinion;
     }
 
-    public function setOpinion($opinion) {
+    public function setOpinion(string $opinion) {
         $this->opinion = $opinion;
     }
 
@@ -137,7 +149,7 @@ class Book extends DbConnect {
         return $this->note;
     }
 
-    public function setNote() {
+    public function setNote(int $note) {
         $this->note = $note;
     }
     

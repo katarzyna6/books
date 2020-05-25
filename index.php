@@ -55,6 +55,8 @@ function showMembre() {
     $user->selectAll();
     $datas = [];
 
+
+
     return ["template" => "membre.php", "datas" => $datas];
 }
 
@@ -139,11 +141,13 @@ function deconnectUser() {
 
 function insertBook() {
 
-    if(!empty($_POST["title"]) && !empty($_POST["author"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
+    if(!empty($_POST["title"]) && !empty($_POST["author"]) && !empty($_POST["image"]) && !empty($_POST["categorie"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
 
         $book = new Book();
         $book->setTitle($_POST["title"]);
         $book->setAuthor($_POST["author"]);
+        $book->setIlmage($_POST["image"]);
+        $book->setCategorie($_POST["categorie"]);       
         $book->setDescription($_POST["description"]);
         $book->setOpinion($_POST["opinion"]);
         $book->setNote($_POST["note"]);
@@ -151,6 +155,12 @@ function insertBook() {
         $book->setIdUser($_SESSION['user']['id_user']);
 
         $book->insert();
+
+        $categorie = new Categorie();
+        $categorie-setNom($_POST["categorie"]);
+        $categorie->setIdCategorie($_SESSION['categorie']['id_categorie']);
+
+        $categorie->insert();
     }
     
     header("Location:membre.php");  
@@ -163,6 +173,16 @@ Affichage du système de templates HTML-->
 
 <!DOCTYPE html>
 <html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../livres/fontello-c89048a8/css/fontello.css"/>
+    <link rel="stylesheet" type="text/css" href="../livres/fontello-68e0f786/css/fontello.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
 
 <body>
 

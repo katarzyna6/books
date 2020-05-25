@@ -27,6 +27,7 @@ CREATE TABLE BOOKS(
         id_book     Int  Auto_increment  NOT NULL ,
         title       Varchar (200) NOT NULL ,
         auteur      Varchar (200) NOT NULL ,
+        image       Varchar (250) NOT NULL ,
         description Varchar (250) NOT NULL ,
         note        Int NOT NULL ,
         categorie   Varchar (50) NOT NULL ,
