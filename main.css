@@ -2,8 +2,8 @@
 body {
   background: rgb(27,56,59);
   background: linear-gradient(90deg, rgba(27,56,59,1) 0%, rgba(253,215,0,1) 100%, rgba(253,215,0,1) 100%);
-    background-repeat: no-repeat;
-    background-size: contain;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 form {
@@ -21,33 +21,34 @@ form {
 
 /*h1 {
  
-    background-color: rgb(196, 112, 16, 0.6);
-    border-radius: 8px;
+  background-color: rgb(196, 112, 16, 0.6);
+  border-radius: 8px;
     
-    width: 700px;
-    text-align: center; 
-    margin: auto;
-    color: #FDD700;
-    font-size: 55px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+  width: 700px;
+  text-align: center; 
+  margin: auto;
+  color: #FDD700;
+  font-size: 55px;
+  margin-top: 60px;
+  margin-bottom: 60px;
     
   background: #666666;
--webkit-background-clip: text;
--moz-background-clip: text;
-background-clip: text;
-text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
   
 }*/
+
 .img{
   width: 100%;
   margin: auto;
 }
+
 h2 {
   text-align: center;
   color: #FDD700;
-  font-size: 40px;
-  
+  font-size: 40px;  
 }
 
 h3 {
@@ -75,150 +76,145 @@ h3 > a:hover {
 /* wygląd głównego elementu - ol */
 ol {
   list-style-type:none;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        padding:0;
-        margin:0;
-        font-size:18px;
-        height:2em;
-        line-height:2em;
-        text-align: center;
-        
-      }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding:0;
+  margin:0;
+  font-size:18px;
+  height:2em;
+  line-height:2em;
+  text-align: center;
+}
 
-      /* wygląd wszystkich elementów - a - znajdujących się w elemencie - ol */
-      ol a {
-        display:block;
-        text-decoration:none;
-        color:#000;
-        padding:0 5px;
-      }
+/* wygląd wszystkich elementów - a - znajdujących się w elemencie - ol */
+ol a {
+  display:block;
+  text-decoration:none;
+  color:#000;
+  padding:0 5px;
+}
 
-      /* wygląd elementów - li - wszystkich dzieci elementu - ol */
-      ol > li {
-        float:left;
-        width: 19.5%;
-        margin-left:1px;
-        background-color:#FDD700;
-        height:2em;
-      }
+/* wygląd elementów - li - wszystkich dzieci elementu - ol */
+ol > li {
+  float:left;
+  width: 16.6%;
+  margin-left:1px;
+  background-color:#FDD700;
+  height:2em;
+}
 
-      /* wygląd elementu - li - pierwszego dziecka elementu - ol */
-      ol > li:first-child {
-        margin-left:0;
-      }
+/* wygląd elementu - li - pierwszego dziecka elementu - ol */
+ol > li:first-child {
+  margin-left:0;
+}
 
-      /* wygląd elementów - li - wszystkich dzieci elementu - ol - po najechaniu kursorem myszki na element - li */
-      ol > li:hover {
-        background-color:rgb(223, 142, 66);
-      }
+/* wygląd elementów - li - wszystkich dzieci elementu - ol - po najechaniu kursorem myszki na element - li */
+ol > li:hover {
+  background-color:rgb(223, 142, 66);
+}
 
-      /* wygląd elementu - a - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
-      ol > li:hover > a {
-        color:#09C;
-      }
+/* wygląd elementu - a - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+ol > li:hover > a {
+  color:#09C;
+}
 
-      /* wygląd elementu - ul - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
-      ol > li:hover > ul {
-        display:block;
-      }
+/* wygląd elementu - ul - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+ol > li:hover > ul {
+  display:block;
+}
 
-      /* ------------------------CZĘŚĆ-ROZWIJANA-MENU------------------------ */
+/* ------------------------CZĘŚĆ-ROZWIJANA-MENU------------------------ */
 
-      /* wygląd głównych rozwijanych elementów - ul */
-      ol > li > ul {
-        display:none;
-        list-style-type:none;
-        padding:0;
-        margin:0;
-      }
+/* wygląd głównych rozwijanych elementów - ul */
+ol > li > ul {
+  display:none;
+  list-style-type:none;
+  padding:0;
+  margin:0;
+}
 
-      /* wygląd elementu - li - w części rozwijanej */
-      ol > li > ul > li {
-        position:relative;
-        background-color:#EEE;
-      }
+/* wygląd elementu - li - w części rozwijanej */
+ol > li > ul > li {
+  position:relative;
+  background-color:#EEE;
+}
 
-      /* wygląd elementu - a - w części rozwijanej */
-      ol > li > ul > li > a {
-        border-top:1px solid #FFF;
-      }
+/* wygląd elementu - a - w części rozwijanej */
+ol > li > ul > li > a {
+  border-top:1px solid #FFF;
+}
 
-      /* wygląd elementu - li - w części rozwijanej, po najechaniu kursorem myszki na dany element - li */
-      ol > li > ul > li:hover {
-        background-color:#DDD;
-      }
+/* wygląd elementu - li - w części rozwijanej, po najechaniu kursorem myszki na dany element - li */
+ol > li > ul > li:hover {
+  background-color:#DDD;
+}
 
-      /* wygląd elementu - a - w części rozwijanej, po najechaniu kursorem myszki na element - li */
-      ol > li > ul > li:hover > a {
-        color:#09C;
-      }
+/* wygląd elementu - a - w części rozwijanej, po najechaniu kursorem myszki na element - li */
+ol > li > ul > li:hover > a {
+  color:#09C;
+}
 
-.footer {
+.footer {  
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:rgb(196, 112, 16, 0.6);
     
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 55px;
-    display: flex;
-    justify-content: space-evenly;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:rgb(196, 112, 16, 0.6);
-    
-    color: #FDD700;
-    clear: both;  
+  color: #FDD700;
+  clear: both;  
 }
 
 #socialdivs {
-  
   float:left;
-  width:40%;
-  
+  width:40%; 
 }
 
 #socials {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  
+  justify-content: center; 
 }
 
 .fb{
   background-color: #4668b3;
-   border-radius: 50%;
-   padding: 6px;
-   transition: transform .2s ease-in-out;
+  border-radius: 50%;
+  padding: 6px;
+  transition: transform .2s ease-in-out;
 }
 
-.fb:hover{
+.fb:hover {
   -webkit-transform: scale(1.15);
 	-ms-transform: scale(1.15);
 	transform: scale(1.15);
 }
 
 .yt:hover {
-   background-color: #d94348; 
-   padding: 6px; 
-   border-radius: 50%; 
+  background-color: #d94348; 
+  padding: 6px; 
+  border-radius: 50%; 
 }
 
 .tw:hover {
-   background-color: #3095d3;
-   padding: 4px; 
-   border-radius: 50%;  
+  background-color: #3095d3;
+  padding: 4px; 
+  border-radius: 50%;  
 }
 
 .li:hover {
-   background-color: #1d7cca;
-   padding: 4px;  
-   border-radius: 50%; 
+  background-color: #1d7cca;
+  padding: 4px;  
+  border-radius: 50%; 
 }
 
 .pi:hover {
-   background-color: #bd081c;
-   padding: 4px;
-   border-radius: 50%;
+  background-color: #bd081c;
+  padding: 4px;
+  border-radius: 50%;
 }
 
 button {
@@ -242,10 +238,10 @@ button {
   background: -ms-linear-gradient(top, #34696f, #2f5f63);
   background: linear-gradient(top, #34696f, #2f5f63);
 
--webkit-box-shadow: 0 8px 0 #1b383b;
--moz-box-shadow: 0 8px 0 #1b383b;
-box-shadow: 0 8px 0 #1b383b;
-text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 8px 0 #1b383b;
+  -moz-box-shadow: 0 8px 0 #1b383b;
+  box-shadow: 0 8px 0 #1b383b;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);
   
 }
 
@@ -256,7 +252,7 @@ button:hover {
   background: -o-linear-gradient(top, #3d7a80, #2f5f63);
   background: -ms-linear-gradient(top, #3d7a80, #2f5f63);
   background: linear-gradient(top, #3d7a80, #2f5f63);
-  }
+}
     
 .field {
   position: relative;
@@ -265,11 +261,8 @@ button:hover {
 }
 
 .field-label{
-
   position: relative;
-
   color: rgb(196, 189, 189);
-
   font-size: 25px;
   font-weight: 400;
   display: block;
@@ -281,16 +274,13 @@ button:hover {
 }
 
 .field-input {
-
   position: relative;
-
   display: block;
   font-size: 25px;
   width: 100%;
   padding: 8px 0;
   height: -52px;
   line-height: 16px;
-
   background: transparent;
   border: none;
   -webkit-appearance: none;
@@ -304,7 +294,6 @@ button:hover {
   position: absolute;
   bottom: 22px;
   left: 0;
-
   background-color: #e7e7e7;
 }
 
@@ -326,5 +315,4 @@ button:hover {
 
 .field.is-focused::after{
   transform: scaleX(1);
-
 }
