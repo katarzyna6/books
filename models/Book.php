@@ -9,7 +9,7 @@ class Book extends DbConnect {
 
     protected $id_book;
     protected $title;
-    protected $author;
+    protected $auteur;
     protected $categorie;
     protected $image;
     protected $description;
@@ -26,12 +26,13 @@ class Book extends DbConnect {
 
     function insert(){
     
-        $query = "INSERT INTO books (title, author, image, categorie, description, opinion, note)
-            VALUES(:title, :author, :description, :opinion, :note)";
+        $query = "INSERT INTO books (id_user, title, auteur, image, categorie, description, opinion, note)
+            VALUES(:id_user, :title, :auteur, :image, :categorie, :description, :opinion, :note)";
 
         $result = $this->pdo->prepare($query);
+        $result->bindValue(':id_user', $this->id_user, PDO::PARAM_INT);
         $result->bindValue(':title', $this->title, PDO::PARAM_STR);
-        $result->bindValue(':author', $this->author, PDO::PARAM_STR);
+        $result->bindValue(':auteur', $this->auteur, PDO::PARAM_STR);
         $result->bindValue(':image', $this->image, PDO::PARAM_STR);
         $result->bindValue(':categorie', $this->categorie, PDO::PARAM_STR);
         $result->bindValue(':description', $this->description, PDO::PARAM_STR);
@@ -39,7 +40,10 @@ class Book extends DbConnect {
         $result->bindValue(':note', $this->note, PDO::PARAM_INT);
         $result->execute();
 
+        
+
         $this->id = $this->pdo->lastInsertId();
+        var_dump($this);
         return $this;
     }
 

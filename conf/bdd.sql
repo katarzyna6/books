@@ -31,8 +31,8 @@ CREATE TABLE BOOKS(
         description Varchar (250) NOT NULL ,
         note        Int NOT NULL ,
         categorie   Varchar (50) NOT NULL ,
-        id_user     Int NOT NULL
-	,CONSTRAINT BOOKS_PK PRIMARY KEY (id_BOOK)
-
-	,CONSTRAINT BOOKS_USERS_FK FOREIGN KEY (id_user) REFERENCES USERS(id_user)
+        opinion      Varchar (250) NOT NULL ,
+        id_user     Int NOT NULL ,
+        CONSTRAINT BOOKS_PK PRIMARY KEY (id_BOOK) ,
+        CONSTRAINT BOOKS_USERS_FK FOREIGN KEY (id_user) REFERENCES USERS(id_user)
 )ENGINE=InnoDB;

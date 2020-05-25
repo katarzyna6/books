@@ -10,7 +10,7 @@
             <h2>Ajouter un livre</h2>
 
                 <label for="title" class="field-label">Titre</label><input type="text" name="title" class="field-input">
-                <label for="author" class="field-label">Auteur</label><input type="text" name="author" class="field-input"/>
+                <label for="auteur" class="field-label">Auteur</label><input type="text" name="auteur" class="field-input"/>
 
                 <label for="categorie" class="field-label">Catégorie :</label><br><br><br>
                     <select id="cats" name="cats">

@@ -43,7 +43,9 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
     break;
     case "deconnect" : deconnectUser();
     break;
-    case "insert_book" : insertBook();
+    case "insert_book": $view = insertBook();
+    break;
+    case "book": $view = showBook();
     break;
     default : $view = showHome();//Afficher la page d'accueil avec mon formulaire  
 }
@@ -70,6 +72,13 @@ function showHome() {
 	// il suffit désormais de mettre dans $datas les données à transmettre à notre vue
     // par exemple $datas["annee"] = 2020;
 	return ["template" => "home.html", "datas" => $datas];
+}
+
+function showBook() {
+    $datas = [];
+	// il suffit désormais de mettre dans $datas les données à transmettre à notre vue
+    // par exemple $datas["annee"] = 2020;
+    return ["template" => "membre.php", "datas" => $datas];
 }
 
 
@@ -141,12 +150,12 @@ function deconnectUser() {
 
 function insertBook() {
 
-    if(!empty($_POST["title"]) && !empty($_POST["author"]) && !empty($_POST["image"]) && !empty($_POST["categorie"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
+    if(!empty($_POST["title"]) && !empty($_POST["auteur"]) && !empty($_POST["image"]) && !empty($_POST["categorie"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
 
         $book = new Book();
         $book->setTitle($_POST["title"]);
-        $book->setAuthor($_POST["author"]);
-        $book->setIlmage($_POST["image"]);
+        $book->setAuteur($_POST["auteur"]);
+        $book->setImage($_POST["image"]);
         $book->setCategorie($_POST["categorie"]);       
         $book->setDescription($_POST["description"]);
         $book->setOpinion($_POST["opinion"]);
@@ -155,7 +164,7 @@ function insertBook() {
         $book->setIdUser($_SESSION['user']['id_user']);
 
         $book->insert();
-
+var_dump($book);
         $categorie = new Categorie();
         $categorie-setNom($_POST["categorie"]);
         $categorie->setIdCategorie($_SESSION['categorie']['id_categorie']);
@@ -163,7 +172,7 @@ function insertBook() {
         $categorie->insert();
     }
     
-    header("Location:membre.php");  
+    header("Location:index.php?route=book");  
 }
     
 ?>
