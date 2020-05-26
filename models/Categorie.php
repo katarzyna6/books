@@ -7,7 +7,7 @@
 
 class Categorie extends DbConnect {
 
-    protected $id_categorie; 
+    protected $idCategorie; 
     protected $name; 
     
     function __construct($id=null) {
@@ -18,7 +18,7 @@ class Categorie extends DbConnect {
         return $this->idCategorie;
     }
 
-    public function setIdCategorie(int $id_categorie) {
+    public function setIdCategorie(int $idCategorie) {
         $this->idCategorie = $idCategorie;
     }
 
@@ -26,16 +26,10 @@ class Categorie extends DbConnect {
         return $this->name;
     }
 
-    public function setNom(int $name) {
+    public function setNom(string $name) {
         $this->name = $name;
     }
 
-    // Le construct permet d'établir une structure de notre annonce
-    function __construct($id=null) {
-        parent::__construct($id);
-    }
-
-    // Permet d'inserer une tache dans la base de donnée.
 
     function insert(){
     
@@ -50,4 +44,25 @@ class Categorie extends DbConnect {
         return $this;
     }
 
+    public function selectAll(){
+        $query ="SELECT * FROM categories;";
+        $result = $this->pdo->prepare($query);
+        $result->execute();
+        $datas= $result->fetchAll(); //recupérer les données
+    
+        $tab=[];
+    
+        foreach($datas as $data) {
+            $current = new Categorie();
+            $current->setIdCategorie($data['id_categorie']);
+            $current->setNom($data['nom']);
+            array_push($tab, $current);
+            }
+            return $tab;
+    
+        }
+    
+        public function select(){}
+        public function update(){}
+        public function delete(){}
 }

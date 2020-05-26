@@ -14,7 +14,12 @@
 
                 <label for="categorie" class="field-label">Catégorie :</label><br><br><br>
                     <select id="cats" name="cats">
-                        <option value="roman">Romans</option>
+                        <?php foreach ($view["datas"]["cat"] as $cat): ?>
+                            <option value="<?=$cat->getIdCategorie(); ?>"><?=$cat->getNom(); ?></option>
+                            
+
+                        <?php endforeach ?>
+                        <!--<option value="roman">Romans</option>
                         <option value="romanAv">Romans d'aventures</option>
                         <option value="sF">Science fiction</option>
                         <option value="fantasy">Fantasy</option>
@@ -22,7 +27,7 @@
                         <option value="bio">Biographies</option>
                         <option value="contes">Contes</option>
                         <option value="nouvelles">Nouvelles</option>
-                        <option value="tem">Reportages</option>
+                        <option value="tem">Reportages</option> -->
                     </select>
 
                 <label for="image" class="field-label">Charger une image</label><br><br><br>
@@ -32,11 +37,11 @@
                 <label for="opinion" class="field-label">Avis</label><input type="text" name="opinion" class="field-input"/>
 
                 <label for="note" class="field-label">Ajouter une note</label><input type="radio" name="note" class="field-input"/><br><br>
-                <label for="1">1<input type="radio" id="1" name="note" value="1"checked></label>
-                <label for="2">2<input type="radio" id="2" name="note" value="2"checked></label>
-                <label for="3">3<input type="radio" id="3" name="note" value="3"checked></label>
-                <label for="4">4<input type="radio" id="4" name="note" value="4"checked></label>
-                <label for="5">5<input type="radio" id="5" name="note" value="5"checked></label><br><br>
+                <label for="1">1<input type="radio" id="1" name="note" value="1"></label>
+                <label for="2">2<input type="radio" id="2" name="note" value="2"></label>
+                <label for="3">3<input type="radio" id="3" name="note" value="3"></label>
+                <label for="4">4<input type="radio" id="4" name="note" value="4"></label>
+                <label for="5">5<input type="radio" id="5" name="note" value="5"></label><br><br>
                 <input type="submit" value="Ajouter"/>
 
                 <h3><a href="index.php">Retour</a><h3>

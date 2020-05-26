@@ -57,7 +57,9 @@ function showMembre() {
     $user->selectAll();
     $datas = [];
 
-
+    $cat = new Categorie();
+    $datas["cat"] = $cat->selectAll();
+    var_dump($datas["cat"]);
 
     return ["template" => "membre.php", "datas" => $datas];
 }
@@ -149,8 +151,8 @@ function deconnectUser() {
 }
 
 function insertBook() {
-
-    if(!empty($_POST["title"]) && !empty($_POST["auteur"]) && !empty($_POST["image"]) && !empty($_POST["categorie"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
+var_dump($_POST);
+    if(!empty($_POST["title"]) && !empty($_POST["auteur"]) && !empty($_POST["categorie"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
 
         $book = new Book();
         $book->setTitle($_POST["title"]);
@@ -164,7 +166,7 @@ function insertBook() {
         $book->setIdUser($_SESSION['user']['id_user']);
 
         $book->insert();
-var_dump($book);
+
         $categorie = new Categorie();
         $categorie-setNom($_POST["categorie"]);
         $categorie->setIdCategorie($_SESSION['categorie']['id_categorie']);
@@ -172,7 +174,7 @@ var_dump($book);
         $categorie->insert();
     }
     
-    header("Location:index.php?route=book");  
+    //header("Location:index.php?route=book");  
 }
     
 ?>
