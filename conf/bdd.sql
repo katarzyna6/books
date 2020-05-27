@@ -1,48 +1,9 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
-
-
-#------------------------------------------------------------
-# Table: USERS
-#------------------------------------------------------------
-
-CREATE TABLE USERS(
-        id_user      Int  Auto_increment  NOT NULL ,
-        nick         Varchar (200) NOT NULL ,
-        nom          Varchar (200) NOT NULL ,
-        prenom       Varchar (200) NOT NULL ,
-        email        Varchar (200) NOT NULL ,
-        password     Varchar (70) NOT NULL ,
-        autorisation Int NOT NULL
-	,CONSTRAINT USERS_PK PRIMARY KEY (id_user)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: BOOKS
-#------------------------------------------------------------
-
-CREATE TABLE BOOKS(
-        id_book     Int  Auto_increment  NOT NULL ,
-        title       Varchar (200) NOT NULL ,
-        auteur      Varchar (200) NOT NULL ,
-        image       Varchar (250) NOT NULL ,
-        description Varchar (250) NOT NULL ,
-        note        Int NOT NULL ,
-        categorie   Varchar (50) NOT NULL ,
-        opinion      Varchar (250) NOT NULL ,
-        id_user     Int NOT NULL ,
-        CONSTRAINT BOOKS_PK PRIMARY KEY (id_BOOK) ,
-        CONSTRAINT BOOKS_USERS_FK FOREIGN KEY (id_user) REFERENCES USERS(id_user)
-)ENGINE=InnoDB;
-
 -- phpMyAdmin SQL Dump
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 26 mai 2020 à 14:18
+-- Généré le :  mer. 27 mai 2020 à 06:23
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -82,6 +43,61 @@ CREATE TABLE IF NOT EXISTS `books` (
   KEY `BOOKS_USERS_FK` (`id_user`),
   KEY `BOOKS_CAT_FK` (`categorie`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id_categorie` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_categorie`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id_categorie`, `nom`) VALUES
+(1, 'Romans'),
+(2, 'Romans d\'aventures'),
+(3, 'Science fiction'),
+(4, 'Horreurs'),
+(5, 'Biographies'),
+(6, 'Contes'),
+(7, 'Nouvelles'),
+(8, 'Reportages');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `nick` varchar(200) NOT NULL,
+  `nom` varchar(200) NOT NULL,
+  `prenom` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(70) NOT NULL,
+  `autorisation` int(11) NOT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `nick` (`nick`) USING BTREE,
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id_user`, `nick`, `nom`, `prenom`, `email`, `password`, `autorisation`) VALUES
+(1, 'adam', 'Durand', 'adam', 'adam@gmail.com', '$2y$10$nF/joCZIUIpwmlt8F/hOwuyC1keoGOgYJOiluFfKxERapfoQou4Ba', 0),
+(8, 'bob', 'McKee', 'Bob', 'bob@jk.fr', '$2y$10$4ZK.0t04Xkk6xAkQ5x.vp.sKCFXuvK1X3d0LjMUjpewUj2tCMyYDO', 0);
 
 --
 -- Contraintes pour les tables déchargées
