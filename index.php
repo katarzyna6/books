@@ -163,13 +163,13 @@ var_dump($_POST);
         $book->setOpinion($_POST["opinion"]);
         $book->setNote($_POST["note"]);
 
-        $book->setIdUser($_SESSION['user']['id_user']);
+        $book->setIdUser($_SESSION['user']['idUser']);
 
         $book->insert();
 
         $categorie = new Categorie();
         $categorie-setNom($_POST["categorie"]);
-        $categorie->setIdCategorie($_SESSION['categorie']['id_categorie']);
+        $categorie->setIdCategorie($_SESSION['categorie']['idCategorie']);
 
         $categorie->insert();
     }

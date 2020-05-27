@@ -117,12 +117,12 @@ class Book extends DbConnect {
         $this->title = $title;
     }
 
-    public function getAuthor() {
-        return $this->author;
+    public function getAuteur() {
+        return $this->auteur;
     }
 
-    public function setAuthor(string $author) {
-        $this->author = $author;
+    public function setAuteur(string $auteur) {
+        $this->auteur = $auteur;
     }
 
     public function getCategorie() {
