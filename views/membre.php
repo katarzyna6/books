@@ -31,7 +31,7 @@
                     </select>
 
                 <label for="image" class="field-label">Charger une image</label><br><br><br>
-                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="file" name="image" id="image">
 
                 <label for="description" class="field-label">Description</label><input type="text" name="description" class="field-input"/>
                 <label for="opinion" class="field-label">Avis</label><input type="text" name="opinion" class="field-input"/>

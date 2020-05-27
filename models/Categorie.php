@@ -8,7 +8,7 @@
 class Categorie extends DbConnect {
 
     protected $idCategorie; 
-    protected $name; 
+    protected $nom; 
     
     function __construct($id=null) {
         parent::__construct($id);
@@ -23,11 +23,11 @@ class Categorie extends DbConnect {
     }
 
     public function getNom() {
-        return $this->name;
+        return $this->nom;
     }
 
-    public function setNom(string $name) {
-        $this->name = $name;
+    public function setNom(string $nom) {
+        $this->nom = $nom;
     }
 
 

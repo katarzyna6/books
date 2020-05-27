@@ -5,7 +5,7 @@
 
 class User extends DbConnect {
     
-    private $id_user;
+    private $idUser;
     private $nick;
     private $nom;
     private $prenom;

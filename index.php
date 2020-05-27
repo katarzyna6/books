@@ -151,30 +151,34 @@ function deconnectUser() {
 }
 
 function insertBook() {
-var_dump($_POST);
-    if(!empty($_POST["title"]) && !empty($_POST["auteur"]) && !empty($_POST["categorie"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
 
+    var_dump($_POST);
+    
+    if(!empty($_POST["title"]) && !empty($_POST["auteur"]) && !empty($_POST["cats"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
+
+        var_dump('ok');
         $book = new Book();
         $book->setTitle($_POST["title"]);
         $book->setAuteur($_POST["auteur"]);
         $book->setImage($_POST["image"]);
-        $book->setCategorie($_POST["categorie"]);       
+        $book->setCategorie($_POST["cats"]);       
         $book->setDescription($_POST["description"]);
         $book->setOpinion($_POST["opinion"]);
         $book->setNote($_POST["note"]);
 
-        $book->setIdUser($_SESSION['user']['idUser']);
-
+        $book->setIdUser($_SESSION['user']['id_user']);
+var_dump($user);
         $book->insert();
 
         $categorie = new Categorie();
-        $categorie-setNom($_POST["categorie"]);
         $categorie->setIdCategorie($_SESSION['categorie']['idCategorie']);
+        $categorie-setNom($_POST["categorie"]);
+        
 
         $categorie->insert();
     }
     
-    //header("Location:index.php?route=book");  
+    header("Location:index.php?route=book");  
 }
     
 ?>

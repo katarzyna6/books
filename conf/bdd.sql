@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `auteur` varchar(200) NOT NULL,
   `image` varchar(250) DEFAULT NULL,
   `categorie` int(11) NOT NULL,
-  `description` varchar(250) NOT NULL,
+  `description` text NOT NULL,
   `note` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `opinion` varchar(250) NOT NULL,

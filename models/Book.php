@@ -15,7 +15,7 @@ class Book extends DbConnect {
     protected $description;
     protected $opinion;
     protected $note;
-    protected $id_user;
+    protected $idUser;
 
     // Le construct permet d'établir une structure de notre annonce
     function __construct($id=null) {
@@ -30,7 +30,7 @@ class Book extends DbConnect {
             VALUES(:id_user, :title, :auteur, :image, :categorie, :description, :opinion, :note)";
 
         $result = $this->pdo->prepare($query);
-        $result->bindValue(':id_user', $this->id_user, PDO::PARAM_INT);
+        $result->bindValue(':id_user', $this->idUser, PDO::PARAM_INT);
         $result->bindValue(':title', $this->title, PDO::PARAM_STR);
         $result->bindValue(':auteur', $this->auteur, PDO::PARAM_STR);
         $result->bindValue(':image', $this->image, PDO::PARAM_STR);
@@ -42,7 +42,7 @@ class Book extends DbConnect {
 
         
 
-        $this->id = $this->pdo->lastInsertId();
+        $this->id_book = $this->pdo->lastInsertId();
         var_dump($this);
         return $this;
     }
@@ -138,7 +138,15 @@ class Book extends DbConnect {
     }
 
     public function setDescription(string $description) {
-        $this->description = $description;
+        return $this->description;
+    }
+
+    public function setImage($image) {
+        $this->image = $image;
+    }
+
+    public function getImage() {
+        return $this->image;
     }
 
     public function getOpinion() {
@@ -156,12 +164,12 @@ class Book extends DbConnect {
     public function setNote(int $note) {
         $this->note = $note;
     }
-    
-    public function getIdUser() {
-        return $this->id_user;
+
+    public function setIdUser(int $idUser) {
+        $this->idUser = $idUser;
     }
 
-    public function setIdUser(int $id) {
-        $this->idUser = $id_user;
+    public function getIdUser() {
+        return $this->idUser;
     }
 }
