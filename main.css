@@ -19,6 +19,10 @@ body {
   box-shadow: 17px 17px 21px -5px rgb(30, 31, 32);
 }
 
+input {
+  color: rgba(255, 255, 255, 0.829);
+}
+
 /*h1 {
  
   background-color: rgb(196, 112, 16, 0.6);
@@ -217,7 +221,11 @@ ol > li > ul > li:hover > a {
   border-radius: 50%;
 }
 
-button {
+input [type=file] {
+  
+}
+
+input[type=submit], button {
  
   display: block;
   margin: auto;
@@ -274,6 +282,7 @@ button:hover {
 }
 
 .field-input {
+  
   position: relative;
   display: block;
   font-size: 25px;

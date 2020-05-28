@@ -43,7 +43,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
     break;
     case "deconnect" : deconnectUser();
     break;
-    case "insert_book": $view = insertBook();
+    case "insert_book": insertBook();
     break;
     case "book": $view = showBook();
     break;
@@ -59,7 +59,7 @@ function showMembre() {
 
     $cat = new Categorie();
     $datas["cat"] = $cat->selectAll();
-    var_dump($datas["cat"]);
+    //var_dump($datas["cat"]);
 
     return ["template" => "membre.php", "datas" => $datas];
 }
@@ -167,18 +167,18 @@ function insertBook() {
         $book->setNote($_POST["note"]);
 
         $book->setIdUser($_SESSION['user']['id_user']);
-var_dump($user);
+
         $book->insert();
 
-        $categorie = new Categorie();
+        /*$categorie = new Categorie();
         $categorie->setIdCategorie($_SESSION['categorie']['idCategorie']);
         $categorie-setNom($_POST["categorie"]);
         
 
-        $categorie->insert();
+        $categorie->insert();*/
     }
     
-    header("Location:index.php?route=book");  
+    header("Location:index.php?route=membre");  
 }
     
 ?>

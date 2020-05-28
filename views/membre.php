@@ -1,3 +1,4 @@
+<!-- <?php var_dump($view['datas']); ?> -->
 <div class="espace">
 
     <h2>Mon espace</h2>

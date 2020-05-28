@@ -90,7 +90,7 @@ class User extends DbConnect {
         $result->execute();
         $datas = $result->fetchAll(); //fetch->récupérer les resultats dans un tableau
         $tab = [];
-        var_dump($datas);
+        //var_dump($datas);
     }
 
     // La syntaxe get permet de lier une propriété d'un objet à une fonction qui sera appelée lorsqu'on accédera à la propriété.

@@ -34,7 +34,7 @@ class Book extends DbConnect {
         $result->bindValue(':title', $this->title, PDO::PARAM_STR);
         $result->bindValue(':auteur', $this->auteur, PDO::PARAM_STR);
         $result->bindValue(':image', $this->image, PDO::PARAM_STR);
-        $result->bindValue(':categorie', $this->categorie, PDO::PARAM_STR);
+        $result->bindValue(':categorie', $this->categorie, PDO::PARAM_INT);
         $result->bindValue(':description', $this->description, PDO::PARAM_STR);
         $result->bindValue(':opinion', $this->opinion, PDO::PARAM_STR);
         $result->bindValue(':note', $this->note, PDO::PARAM_INT);
@@ -138,7 +138,7 @@ class Book extends DbConnect {
     }
 
     public function setDescription(string $description) {
-        return $this->description;
+        $this->description = $description;
     }
 
     public function setImage($image) {
