@@ -52,10 +52,17 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
 
 function showMembre() {
 
-    // Visualiser temporairement les données d'un utilisateur
+    /* Visualiser temporairement les données d'un utilisateur
     $user = new User();
     $user->selectAll();
-    $datas = [];
+    $datas = [];*/
+
+    $book = new Book();
+    $book->setIdUser($_SESSION["user"]["id_user"]);
+    
+    $datas =[];
+    $datas['books'] = $book->selectByUser();
+    
 
     $cat = new Categorie();
     $datas["cat"] = $cat->selectAll();

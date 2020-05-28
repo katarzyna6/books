@@ -70,6 +70,8 @@ INSERT INTO `categories` (`id_categorie`, `nom`) VALUES
 (6, 'Contes'),
 (7, 'Nouvelles'),
 (8, 'Reportages');
+(8, 'Poésie');
+(8, 'Autres');
 
 -- --------------------------------------------------------
 

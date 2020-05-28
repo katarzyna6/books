@@ -1,9 +1,9 @@
 *
 body {
-  background: rgb(27,56,59);
+  /*background: rgb(27,56,59);
   background: linear-gradient(90deg, rgba(27,56,59,1) 0%, rgba(253,215,0,1) 100%, rgba(253,215,0,1) 100%);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain;*/
 }
 
 .form1, .form2, .form3  {

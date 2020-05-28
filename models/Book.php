@@ -77,6 +77,35 @@ class Book extends DbConnect {
 
     }
 
+    public function selectByUser() {
+        $query = "SELECT id_book, title, auteur, image, categorie, description, note, id_user, opinion FROM books WHERE id_user = :id";
+        $result = $this->pdo->prepare($query);
+
+        $result->bindValue("id", $this->idUser, PDO::PARAM_INT);
+        $result->execute();
+        $datas = $result->fetchAll();
+        //var_dump($datas);
+
+        $books = [];
+        foreach($datas as $elem) {
+            $book = new Book();
+            $book->setIdBook($elem['id_book']);
+            $book->setIdUser($elem['id_user']);
+            $book->setTitle($elem['title']);
+            $book->setAuteur($elem['auteur']);
+            $book->setImage($elem['image']);
+            $book->setCategorie($elem['categorie']);
+            $book->setDescription($elem['description']);
+            $book->setNote($elem['note']);
+            $book->setOpinion($elem['opinion']);
+            array_push($books, $book);
+        }
+
+        //var_dump($books);
+        return $books;
+        
+    }
+
 
     // Permet de modifier un livre dans la base de donnée. 
     public function update(){
@@ -106,7 +135,7 @@ class Book extends DbConnect {
     }
 
     public function setIdBook(int $id_book) {
-        $this->idBook = $id_abook;
+        $this->idBook = $id_book;
     }
 
     public function getTitle() {

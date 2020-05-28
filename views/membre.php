@@ -1,9 +1,18 @@
-<!-- <?php var_dump($view['datas']); ?> -->
+<?php
+//var_dump($view['datas']['books']); 
+
+$books = $view['datas']['books'];
+
+$list = "";
+
+
+?>
+
 <div class="espace">
-
     <h2>Mon espace</h2>
-
 </div>
+
+<h3><a href="index.php?route=deconnect">Me déconnecter</a></h3>
 
     <div class = "form3">
         
@@ -45,9 +54,22 @@
                 <label for="5">5<input type="radio" id="5" name="note" value="5"></label><br><br>
                 <input type="submit" value="Ajouter"/>
 
-                <h3><a href="index.php">Retour</a><h3>
+                <div class="list">
+                <h2>Mes livres ajoutés :</h2>
+                    <ul>
+                        <?php foreach($books as $book) :?>
+                            <li>Titre :<br><?= $book->getTitle()?></li><br>
+                            <li>Auteur :<br><?=$book->getAuteur()?></li><br>
+                            <li>Image :<br><?=$book->getImage()?></li>
+                            <li>Categorie :<br><?=$book->getCategorie()?></li>
+                            <li>Description :<br><?=$book->getDescription()?></li>
+                            <li>Ma note :<br><?=$book->getNote()?></li>
+                            <li>Mon avis :<br><?=$book->getOpinion()?></li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
 
-                <button type="submit"><a href="index.php?route=deconnect">Me déconnecter</a></button>
-    
+                <h3><a href="index.php">Retour</a><h3>
+   
             </form>
     </div>
