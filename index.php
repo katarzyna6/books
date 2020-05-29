@@ -47,6 +47,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
     break;
     case "mod_book": modBook();
     break;
+    case "del_book": delBook();
+    break;
     case "book": $view = showBook();
     break;
     default : $view = showHome();//Afficher la page d'accueil avec mon formulaire  
@@ -223,7 +225,18 @@ function modBook() {
     var_dump($book);
     $book->update();
 
-    //header("Location:index.php?route=membre");
+    header("Location:index.php?route=membre");
+}
+
+function delBook() {
+    echo('ok');
+
+    $book = new Book();
+    $book->setIdBook($_REQUEST["id"]);
+
+    $book->delete();
+
+    header("Location:index.php?route=membre");
 }
     
 ?>

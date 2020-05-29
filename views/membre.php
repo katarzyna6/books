@@ -64,12 +64,16 @@ $list = "";
                 <?= isset($view['datas']['book'])? "<input type='hidden' name='id_book' value=' ".$view['datas']['book']->getIdBook()."'>" : ""; ?>
 
                 <input type="submit" value="<?= isset($view['datas']['book'])? "Modifier" : "Ajouter"; ?>" />
+               
 
                 
 
                 <div class="list">
+
                 <h2>Mes livres ajoutés :</h2>
+
                     <ul>
+
                         <?php foreach($books as $book) :?>
                             <li>Titre : <a href="index.php?route=membre&id=<?= $book->getIdBook()?>"><?= $book->getTitle()?></li></a><br>
                             <li>Auteur :<br><?=$book->getAuteur()?></li><br>
@@ -78,7 +82,11 @@ $list = "";
                             <li>Description :<br><?=$book->getDescription()?></li>
                             <li>Ma note :<br><?=$book->getNote()?></li>
                             <li>Mon avis :<br><?=$book->getOpinion()?></li>
+                            <h3><a href="index.php?route=insert_book=<?= $book->getIdBook()?>">Ajouter</a></h3>
+                            <h3><a href="index.php?route=membre&id=<?= $book->getIdBook()?>">Modifier</a></h3>
+                            <h3><a href="index.php?route=del_book&id=<?= $book->getIdBook()?>">Supprimer</a></h3>
                         <?php endforeach ?>
+
                     </ul>
                     <!-- Autorisation -->
                         <!-- <?php if($_SESSION['user']['autorisation'] === "admin"): ?> -->

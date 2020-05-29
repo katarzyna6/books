@@ -131,14 +131,21 @@ class Book extends DbConnect {
         $result->bindValue('idUser', $this->idUser, PDO::PARAM_INT);
         $result->bindValue('idBook', $this->id_book, PDO::PARAM_INT);
         $result->execute();
-        
                 
     }
 
  
     public function delete(){
-       
+
+        $query ="DELETE FROM books WHERE `id_book` = :idBook";
+
+        $result = $this->pdo->prepare($query);
+        
+        $result->bindValue('idBook', $this->id_book, PDO::PARAM_INT);
+        $result->execute();
+                
     }
+
 
     public function setIdBook(int $id_book) {
         $this->id_book = $id_book;
