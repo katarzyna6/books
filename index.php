@@ -45,6 +45,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
     break;
     case "insert_book": insertBook();
     break;
+    case "mod_book": modBook();
+    break;
     case "book": $view = showBook();
     break;
     default : $view = showHome();//Afficher la page d'accueil avec mon formulaire  
@@ -54,19 +56,35 @@ function showMembre() {
 
     /* Visualiser temporairement les données d'un utilisateur
     $user = new User();
-    $user->selectAll();
-    $datas = [];*/
+    $user->selectAll();*/
 
+
+    //Afficher les livres d'un utilisateur connecté
     $book = new Book();
     $book->setIdUser($_SESSION["user"]["id_user"]);
-    
+
     $datas =[];
     $datas['books'] = $book->selectByUser();
-    
+    //var_dump ($datas['books']);
 
+    //on récupére les noms des catégories
+    foreach($datas['books'] as &$elem) {
+        $cat = new Categorie();
+        $cat->setIdCategorie($elem->getCategorie());
+        $elem->categoriecomplete = $cat->select();
+    }
+
+    //Récupérer un livre à modifier
+    if(isset($_GET['id'])) {
+        $book->setIdBook($_GET['id']);
+        $books = $book->select();
+        $datas['book'] = $book;
+    }
+
+    //on ajoute l'objet Categorie
     $cat = new Categorie();
     $datas["cat"] = $cat->selectAll();
-    //var_dump($datas["cat"]);
+    
 
     return ["template" => "membre.php", "datas" => $datas];
 }
@@ -80,7 +98,7 @@ function showHome() {
     $datas = [];
 	// il suffit désormais de mettre dans $datas les données à transmettre à notre vue
     // par exemple $datas["annee"] = 2020;
-	return ["template" => "home.html", "datas" => $datas];
+	return ["template" => "home.php", "datas" => $datas];
 }
 
 function showBook() {
@@ -186,6 +204,26 @@ function insertBook() {
     }
     
     header("Location:index.php?route=membre");  
+}
+
+function modBook() {
+    echo('ok');
+    $book = new Book();
+    $book->setIdBook($_POST['id_book']);
+    $book->setTitle($_POST["title"]);
+    $book->setAuteur($_POST["auteur"]);
+    $book->setImage($_POST["image"]);
+    $book->setCategorie($_POST["cats"]);       
+    $book->setDescription($_POST["description"]);
+    $book->setOpinion($_POST["opinion"]);
+    $book->setNote($_POST["note"]);
+
+    $book->setIdUser($_SESSION['user']['id_user']);
+    
+    var_dump($book);
+    $book->update();
+
+    //header("Location:index.php?route=membre");
 }
     
 ?>

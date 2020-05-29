@@ -62,7 +62,18 @@ class Categorie extends DbConnect {
     
         }
     
-        public function select(){}
+        //on récupére les noms des categories
+        function select(){
+            $query = "SELECT * FROM categories WHERE id_categorie = :id";
+            $result = $this->pdo->prepare($query);
+            $result->bindValue(':id', $this->idCategorie, PDO::PARAM_INT);
+            $result->execute();
+            $datas = $result->fetch();
+            $this->nom = $datas['nom'];
+                //appel aux setters de l'objet
+            return $this;
+        }
+    
         public function update(){}
         public function delete(){}
 }

@@ -8,6 +8,7 @@ body {
 
 .form1, .form2, .form3  {
   background-color: rgba(17, 16, 15, 0.6);
+  color: #FFF;
   width: 700px;
   padding: 20px;
   margin-top: 45px;

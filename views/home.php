@@ -1,32 +1,5 @@
 <!--<h1>CLUB de LIVRES</h1>-->
-<div class="img">
-    <img src="img/book4.jpg" alt="header" width="1340" height="250"/>
-</div>
-<div class="nav">
-
-    <ol class="menu">
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Livres</a>
-            <ul class="sous-menu">
-                <li><a href="#">Noveautés</a></li>
-                <li><a href="#">Scanner un Livre</a></li>
-                <li><a href="#">Bibliothèque</a></li>
-            </ul>
-        </li>
-
-        <li><a href="#">Mon Espace</a>
-            <ul class="sous-menu">
-                <li><a href="#">Mon Compte</a></li>
-                <li><a href="#">Mes Livres</a></li>
-                <li><a href="#">Déconnection</a></li>
-            </ul>
-        </li>
-
-        <li><a href="#">Espace Admin</a></li>
-        <li><a href="#">Liens</a></li>
-        <li><a href="#"> Contact</a></li>
-    </ol>
-</div>
+<?php require "views/nav.php"; ?>
 
 <div class = "form1">
                 
@@ -97,49 +70,7 @@
 </div>
                 
 
-<div class="footer">
-
-    <div class="my">Club de Livres &copy;2020</div>
-                
-    <div class="mail">
-        <a href="#" target="_blank" title="Contact">Contact<i class="icon-mail-alt"></i></a>
-    </div>
-                
-    <div class="ment">
-        <a href="#" title="Mentions légales">Mentions légales</a>
-    </div>
-                        
-    <div>
-        <a href="#" title="Politique de confidentialité">Politique de confidentialité</a>
-    </div>
-                
-    <div id="socialdivs">
-                
-        <div id="socials">
-                
-            <div class="fb">
-                <a href="https://Facebook.com" target="_blank" title="Facebook"><i class="icon-facebook"></i></a>
-            </div>
-                
-            <div class="yt">
-                <a href="https://Youtube.com" target="_blank" title="Youtube"><i class="icon-youtube-play"></i></a> 
-            </div>
-                                
-            <div class="tw">
-                <a href="https://Twitter.com" target="_blank" title="Twiter" title="Tweeter"><i class="icon-twitter"></i></a>
-            </div>
-                
-            <div class="li">
-                <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="icon-linkedin"></i></a>
-            </div>
-                
-            <div class="pi">
-                <a href="https://www.pinterest.com" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
-            </div>
-                
-        </div>
-
-    </div>
-
-</div>               
+<?php
+    require "views/footer.php";
+?>      
         

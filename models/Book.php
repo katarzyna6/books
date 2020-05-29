@@ -50,14 +50,24 @@ class Book extends DbConnect {
     // Permet de selectionner un livre dans la base de donnée. 
     public function select(){
 
-        $query = "SELECT * FROM books WHERE id_book = :id_book";
+        $query = "SELECT * FROM books WHERE id_book = :id";
         $result = $this->pdo->prepare($query);
-        $result->bindValue('id_book', $this->idBook, PDO::PARAM_INT);
+        $result->bindValue('id', $this->id_book, PDO::PARAM_INT);
         $result->execute();
-        $data = $result->fetch();
+        $datas = $result->fetch();
         //appel aux setters de l'objet
+        
+        $this->setIdUser($datas['id_user']);
+        $this->setTitle($datas['title']);
+        $this->setAuteur($datas['auteur']);
+        $this->setImage($datas['image']);
+        $this->setCategorie($datas['categorie']);
+        $this->setDescription($datas['description']);
+        $this->setNote($datas['note']);
+        $this->setOpinion($datas['opinion']);
+
         return $this;
-}
+    }
 
     // Permet de selectionner toutes les taches dans la base de donnée. 
     public function selectAll(){
@@ -101,41 +111,41 @@ class Book extends DbConnect {
             array_push($books, $book);
         }
 
-        //var_dump($books);
+        
         return $books;
         
     }
 
-
-    // Permet de modifier un livre dans la base de donnée. 
     public function update(){
-        $query ="UPDATE * FROM books WHERE id_book = :id_book";
+        $query ="UPDATE books SET `title`= :title, `auteur` = :auteur, `categorie` = :categorie, `image` = :image, `description` = :description, `opinion` = :opinion, `note` = :note, `id_user` = :idUser WHERE `id_book` = :idBook";
+
         $result = $this->pdo->prepare($query);
-        $result->bindValue('id_book', $this->idBook, PDO::PARAM_INT);
+        
+        $result->bindValue('title', $this->title, PDO::PARAM_STR);
+        $result->bindValue('auteur', $this->auteur, PDO::PARAM_STR);
+        $result->bindValue('image', $this->image, PDO::PARAM_STR);
+        $result->bindValue('categorie', $this->categorie, PDO::PARAM_INT);
+        $result->bindValue('description', $this->description, PDO::PARAM_STR);
+        $result->bindValue('opinion', $this->opinion, PDO::PARAM_STR);
+        $result->bindValue('note', $this->note, PDO::PARAM_INT);
+        $result->bindValue('idUser', $this->idUser, PDO::PARAM_INT);
+        $result->bindValue('idBook', $this->id_book, PDO::PARAM_INT);
         $result->execute();
-        $data = $result->fetch();
-                //appel aux setters de l'objet
-            return $this;
+        
+                
     }
 
-    // Permet de supprimer un livre dans la base de donnée. 
+ 
     public function delete(){
-        $query ="DELETE * FROM books WHERE id_book = :id_book";
-        $result = $this->pdo->prepare($query);
-        $result->bindValue('id_book', $this->idBook, PDO::PARAM_INT);
-        $result->execute();
-        $data = $result->fetch();
-        //appel aux setters de l'objet
-        return $this;
-    }
-
-    // La syntaxe get permet de lier une propriété d'un objet à une fonction qui sera appelée lorsqu'on accédera à la propriété.
-    public function getIdBook() {
-        return $this->idBook;
+       
     }
 
     public function setIdBook(int $id_book) {
-        $this->idBook = $id_book;
+        $this->id_book = $id_book;
+    }
+
+    public function getIdBook() {
+        return $this->id_book;
     }
 
     public function getTitle() {
