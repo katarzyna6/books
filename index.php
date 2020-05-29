@@ -253,8 +253,11 @@ Affichage du système de templates HTML-->
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="../livres/fontello-c89048a8/css/fontello.css"/>
     <link rel="stylesheet" type="text/css" href="../livres/fontello-68e0f786/css/fontello.css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+
+    <title>Club de Livre</title>
+    
 </head>
 
 <body>

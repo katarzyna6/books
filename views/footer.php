@@ -27,7 +27,7 @@
             </div>
                                 
             <div class="tw">
-                <a href="https://Twitter.com" target="_blank" title="Twiter" title="Tweeter"><i class="icon-twitter"></i></a>
+                <a href="https://Twitter.com" target="_blank" title="Twiter"><i class="icon-twitter"></i></a>
             </div>
                 
             <div class="li">
