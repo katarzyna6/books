@@ -64,6 +64,7 @@ function showMembre() {
     //Afficher les livres d'un utilisateur connecté
     $book = new Book();
     $book->setIdUser($_SESSION["user"]["id_user"]);
+    //var_dump($_SESSION);
 
     $datas =[];
     $datas['books'] = $book->selectByUser();
@@ -180,6 +181,13 @@ function deconnectUser() {
 function insertBook() {
 
     var_dump($_POST);
+    var_dump($_FILES);
+    $image = "default.png";
+
+    if(!empty($_FILES['image']['tmp_name'])) {
+        $uploder = new UploadImage($_FILES['image'], 450, 450);
+        $image = $uploder->set_image();
+    }
     
     if(!empty($_POST["title"]) && !empty($_POST["auteur"]) && !empty($_POST["cats"]) && !empty($_POST["description"]) && !empty($_POST["opinion"]) && !empty($_POST["note"])) {
 
@@ -187,7 +195,7 @@ function insertBook() {
         $book = new Book();
         $book->setTitle($_POST["title"]);
         $book->setAuteur($_POST["auteur"]);
-        $book->setImage($_POST["image"]);
+        $book->setImage($image);
         $book->setCategorie($_POST["cats"]);       
         $book->setDescription($_POST["description"]);
         $book->setOpinion($_POST["opinion"]);
@@ -235,6 +243,15 @@ function delBook() {
     $book->setIdBook($_REQUEST["id"]);
 
     $book->delete();
+
+    if($book->getIdUser() == $_SESSION['user']['id']) {
+        $image = $book->getImage();
+        $book->delete();
+        if($image != "default.png") {
+            unlink("img/".$image); //Supprimer l'image
+        }
+
+    }
 
     header("Location:index.php?route=membre");
 }

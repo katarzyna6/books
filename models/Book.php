@@ -80,7 +80,7 @@ class Book extends DbConnect {
 
     foreach($datas as $data) {
         $current = new Book();
-        $current->setId($data['id_book']);
+        $current->setIdBook($data['id_book']);
         array_push($tab, $current);
         }
         return $tab;
@@ -146,6 +146,10 @@ class Book extends DbConnect {
                 
     }
 
+    function getProperties(): array {
+        return get_object_vars($this);
+    }
+
 
     public function setIdBook(int $id_book) {
         $this->id_book = $id_book;
@@ -187,12 +191,11 @@ class Book extends DbConnect {
         $this->description = $description;
     }
 
-    public function setImage($image) {
-        $this->image = $image;
-    }
-
-    public function getImage() {
+    function getImage(): string {
         return $this->image;
+    }
+    function setImage (string $image) {
+        $this->image = $image;
     }
 
     public function getOpinion() {
@@ -211,11 +214,11 @@ class Book extends DbConnect {
         $this->note = $note;
     }
 
-    public function setIdUser(int $idUser) {
-        $this->idUser = $idUser;
-    }
-
     public function getIdUser() {
         return $this->idUser;
+    }
+
+    public function setIdUser(int $idUser) {
+        $this->idUser = $idUser;
     }
 }

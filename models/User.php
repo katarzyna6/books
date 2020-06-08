@@ -14,8 +14,66 @@ class User extends DbConnect {
     private $autorisation;
 
     // Le construct permet d'établir une structure de notre utilisateur
-    function __construct($id_user = null) {
-        parent::__construct($id_user);
+    function __construct($id = null) {
+        parent::__construct($id);
+    }
+
+    // La syntaxe get permet de lier une propriété d'un objet à une fonction qui sera appelée lorsqu'on accédera à la propriété.
+    public function getIdUser () {    
+        return $this->idUser;
+    }
+    
+    // La syntaxe set permet de lier une propriété d'un objet à une fonction qui sera appelée à chaque tentative de modification de cette propriété.
+    public function setIdUser(int $idUser) {
+        $this->idUser = $idUser;
+    }
+    
+    public function getNick() {
+        return $this->nick;
+    }
+    
+    public function setNick(string $nick) {
+        $this->nick = $nick;
+    }
+    
+    public function getNom() {
+        return $this->nom;
+    }
+    
+    public function setNom(string $nom) {
+        $this->nom = $nom;
+    }
+    
+    public function getPrenom() {
+        return $this->prenom;
+    }
+    
+    public function setPrenom(string $prenom) {
+        $this->prenom = $prenom;
+    }
+    
+    public function getEmail() {
+        return $this->email;
+    }
+    
+    public function setEmail(string $email) {
+        $this->email = $email;
+    }
+    
+    public function getPassword() {
+        return $this->password;
+    }
+    
+    public function setPassword(string $password) {
+        $this->password = $password;
+    }
+    
+    public function getAutorisation() {
+        return $this->pseudo;
+    }
+    
+    public function setAutorisation(int $autorisation) {
+        $this->autorisation = $autorisation;
     }
 
     // Permet d'inserer un utilisateur dans la base de donnée.
@@ -91,64 +149,13 @@ class User extends DbConnect {
         $datas = $result->fetchAll(); //fetch->récupérer les resultats dans un tableau
         $tab = [];
         //var_dump($datas);
-    }
 
-    // La syntaxe get permet de lier une propriété d'un objet à une fonction qui sera appelée lorsqu'on accédera à la propriété.
-    function getIdUser ($id_user) {
-        
-        return $this->idUser;
-    }
-
-    // La syntaxe set permet de lier une propriété d'un objet à une fonction qui sera appelée à chaque tentative de modification de cette propriété.
-    public function setIdUser(int $id) {
-        $this->idUser = $id;
-    }
-
-    public function getNick() {
-        return $this->nick;
-    }
-
-    public function setNick(string $nick) {
-        $this->nick = $nick;
-    }
-
-    public function getNom() {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom) {
-        $this->nom = $nom;
-    }
-
-    public function getPrenom() {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom) {
-        $this->prenom = $prenom;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function setEmail(string $email) {
-        $this->email = $email;
-    }
-
-    public function getPassword() {
-        return $this->password;
-    }
-
-    public function setPassword(string $password) {
-        $this->password = $password;
-    }
-
-    public function getAutorisation() {
-        return $this->pseudo;
-    }
-
-    public function setAutorisation(int $autorisation) {
-        $this->autorisation = $autorisation;
+        foreach($datas as $data) {
+            $current = new User();
+            $current->setIdUser($data['id_user']);
+            array_push($tab, $current);
+            }
+            return $tab;
     }
 }
+    

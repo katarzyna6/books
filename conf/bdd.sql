@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `id_book` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `auteur` varchar(200) NOT NULL,
-  `image` varchar(250) DEFAULT NULL,
+  `image` varchar(255) DEFAULT "default.jpg",
   `categorie` int(11) NOT NULL,
   `description` text NOT NULL,
   `note` int(11) NOT NULL,

@@ -87,13 +87,16 @@ $list = "";
         <ul>
 
             <?php foreach($books as $book) :?>
+
+            <!--Securité--><script type="text/javascript">alert("Problème");</script> 
+            
                 <li>Titre : <a href="index.php?route=membre&id=<?= $book->getIdBook()?>"><?= $book->getTitle()?></a></li>
-                <li>Auteur :<?=$book->getAuteur()?></li>
-                <li>Image :<?=$book->getImage()?></li>
-                <li>Categorie :<?=$book->categoriecomplete->getNom();?></li><!--affichage les noms des categories -->
-                <li>Description :<?=$book->getDescription()?></li>
-                <li>Ma note :<?=$book->getNote()?></li>
-                <li>Mon avis :<?=$book->getOpinion()?></li>
+                <li>Auteur : <?=$book->getAuteur()?></li>
+                <li><img src="img/<?= $book->getImage() ?>" alt="" style="width:65px; height:56px; margin: 2px;"><a href="index.php?route=membre&id=<?= $book->getIdBook() ?>"></li>
+                <li>Categorie : <?=$book->categoriecomplete->getNom();?></li><!--affichage les noms des categories -->
+                <li>Description : <?=$book->getDescription()?></li>
+                <li>Ma note : <?=$book->getNote()?></li>
+                <li>Mon avis : <?=$book->getOpinion()?></li>
                             
                 <?php endforeach ?>
 
